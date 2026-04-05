@@ -39,6 +39,14 @@ app.use((req: Request, _res: Response, next: NextFunction) => {
 });
 
 // Health check route
+app.get('/', (_req: Request, res: Response)=>{
+  res.status(200).json({
+    success: true,
+    message: 'DOCIT Backend is running',
+    timestamp: new Date().toISOString(),
+  });
+});
+
 app.get('/health', (_req: Request, res: Response) => {
   res.status(200).json({
     success: true,
